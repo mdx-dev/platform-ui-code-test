@@ -1,4 +1,25 @@
 <div class="list-container">
-  <h2>Providers</h2>
-
+  <section>
+    <h2>Choose Some Providers!</h2>
+    <div (click)="add()"
+      *ngFor="let provider of unselectedProviders; let i = index"
+      [attr.data-index]="i"
+    >
+      {{ provider.name }}
+      {{ provider.address }}
+      {{ provider.phone }}
+    </div>
+  </section>
+  <section *ngIf="selectedProviders.length != 0">
+    <h2>Your Saved Providers!</h2>
+    <div
+      *ngFor="let provider of selectedProviders; let i = index"
+      [attr.data-index]="i"
+    >
+    <button (click)="remove()"> X </button>
+      {{ provider.name }}
+      {{ provider.address }}
+      {{ provider.phone }}
+  </div>
+  </section>
 </div>

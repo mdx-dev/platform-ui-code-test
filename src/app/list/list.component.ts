@@ -1,4 +1,6 @@
+import { stripSummaryForJitFileSuffix } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
+import { StateService } from '../state.service';
 
 @Component({
   selector: 'app-list',
@@ -29,8 +31,22 @@ export class ListComponent implements OnInit {
     }
   ];
 
-  constructor() {}
+  constructor(private state: StateService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.state.getItems().map(item => {
+      this.selectedProviders.push(JSON.parse(item))
+    })
+  }
 
+  add() {
+    const item = this.unselectedProviders.pop()
+    this.selectedProviders.push(item)
+    this.state.setItem(item.id, JSON.stringify(item))
+  }
+
+  remove() {
+    const remove = this.selectedProviders.pop()
+    this.state.removeItem(remove.id)
+  }
 }
