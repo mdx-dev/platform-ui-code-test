@@ -12,7 +12,7 @@ h2, h3 {
 
 .card {
   width: 30%;
-  max-height: 40vh;
+  max-height: 45vh;
   border: solid 1px #eee6e6;
   border-radius: 10px 10px;
   padding: 1em;
@@ -20,8 +20,8 @@ h2, h3 {
 }
 
 .saved_card {
-  max-width: 22%;
-  max-height: 40vh;
+  width: 30%;
+  max-height: 45vh;
   border: solid 1px #eee6e6;
   border-radius: 10px 10px;
   padding: 1em;
@@ -45,6 +45,7 @@ h2, h3 {
   border: none;
   background-color: transparent;
   padding: 1em;
+  border-radius: 90%;
 }
 
 .close_btn:hover {
