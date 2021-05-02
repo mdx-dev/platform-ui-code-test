@@ -1,10 +1,14 @@
 import { ListComponent } from './list.component';
+import { StoreService } from '../store.service';
+import { TestBed, getTestBed } from '@angular/core/testing';
 
 describe('ListComponent', () => {
   let component: ListComponent;
+  let service: StoreService;
+  let injector: TestBed;
 
   beforeEach(() => {
-    component = new ListComponent();
+    component = new ListComponent(service);
   });
 
   it('should create', () => {
@@ -38,4 +42,12 @@ describe('ListComponent', () => {
       expect(component.selectedProviders.length).toEqual(0);
     });
   });
+
+  describe('should inject service', () => {
+    it('should inject service', () => {
+      injector = getTestBed();
+      service = injector.get(StoreService);
+    });
+  });
+
 });

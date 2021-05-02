@@ -1,6 +1,6 @@
 import { stripSummaryForJitFileSuffix } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
-import { StateService } from '../state.service';
+import { StoreService } from '../store.service';
 
 @Component({
   selector: 'app-list',
@@ -31,7 +31,7 @@ export class ListComponent implements OnInit {
     }
   ];
 
-  constructor(private state: StateService) {}
+  constructor(private state: StoreService) {}
 
   ngOnInit() {
     this.state.getItems().map(item => {

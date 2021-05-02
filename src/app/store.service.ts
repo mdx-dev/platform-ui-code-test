@@ -1,10 +1,9 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: "root",
+  providedIn: 'root'
 })
-export class StateService {
-
+export class StoreService {
   constructor(){}
 
   public setItem(key: string, value: string) {
