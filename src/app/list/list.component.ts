@@ -60,5 +60,4 @@ export class ListComponent implements OnInit {
       this.state.removeItem(providerItem.id)
     }
   }
-
 }

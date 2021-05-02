@@ -6,8 +6,8 @@
   border: 1px solid lightgray;
 }
 
-h2 {
-  border-bottom: 1px solid lightgray;
+h2, h3 {
+  border-bottom: 1px solid rgb(193, 188, 188);
 }
 
 .card {
@@ -18,6 +18,24 @@ h2 {
   padding: 1em;
   margin:  1em;
 }
+
+.saved_card {
+  max-width: 22%;
+  max-height: 40vh;
+  border: solid 1px #eee6e6;
+  border-radius: 10px 10px;
+  padding: 1em;
+  margin: 1em;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+
+.card_content {
+  display: flex;
+  flex-direction: column;
+}
+
 .card:hover{
   background-color:rgb(212, 247, 212);
 }
@@ -26,7 +44,10 @@ h2 {
   cursor: pointer;
   border: none;
   background-color: transparent;
+  padding: 1em;
 }
+
 .close_btn:hover {
   border: solid 1px #eee6e6;
+  background-color: lightpink;
 }

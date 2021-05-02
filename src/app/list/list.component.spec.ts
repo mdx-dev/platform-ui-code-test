@@ -50,4 +50,9 @@ describe('ListComponent', () => {
     });
   });
 
+  // describe('Add providers to selected list', () => {
+  //   it('should add to selected providers list', () => {
+  //     // component.ngOnInit();
+  //   });
+  // });
 });
