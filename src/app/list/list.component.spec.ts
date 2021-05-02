@@ -49,10 +49,4 @@ describe('ListComponent', () => {
       service = injector.get(StoreService);
     });
   });
-
-  // describe('Add providers to selected list', () => {
-  //   it('should add to selected providers list', () => {
-  //     // component.ngOnInit();
-  //   });
-  // });
 });
