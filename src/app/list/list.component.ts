@@ -1,4 +1,3 @@
-import { stripSummaryForJitFileSuffix } from '@angular/compiler/src/aot/util';
 import { Component, OnInit } from '@angular/core';
 import { StoreService } from '../store.service';
 
@@ -35,18 +34,31 @@ export class ListComponent implements OnInit {
 
   ngOnInit() {
     this.state.getItems().map(item => {
-      this.selectedProviders.push(JSON.parse(item))
+      const parseItem = JSON.parse(item)
+      if (!this.selectedProviders.includes(parseItem)){
+          this.selectedProviders.push(parseItem)
+       }
+       const currentList = this.unselectedProviders.filter( item => item.id !== parseItem.id)
+       this.unselectedProviders = currentList
     })
   }
 
-  add() {
-    const item = this.unselectedProviders.pop()
-    this.selectedProviders.push(item)
-    this.state.setItem(item.id, JSON.stringify(item))
+  add(providerItem) {
+    const currentList = this.unselectedProviders.filter( item => item.id !== providerItem.id)
+    this.unselectedProviders = currentList
+    if ( !this.selectedProviders.includes(providerItem) ) {
+      this.selectedProviders.push(providerItem)
+      this.state.setItem(providerItem.id, JSON.stringify(providerItem))
+    }
   }
 
-  remove() {
-    const remove = this.selectedProviders.pop()
-    this.state.removeItem(remove.id)
+  remove(providerItem) {
+    const currentList = this.selectedProviders.filter( item => item.id !== providerItem.id)
+    this.selectedProviders = currentList
+    if ( !this.unselectedProviders.includes(providerItem) ) {
+      this.unselectedProviders.push(providerItem)
+      this.state.removeItem(providerItem.id)
+    }
   }
+
 }
