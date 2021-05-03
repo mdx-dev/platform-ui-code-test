@@ -27,7 +27,6 @@ h2, h3 {
   padding: 1em;
   margin: 1em;
   display: flex;
-  flex-direction: row-reverse;
 }
 
 
