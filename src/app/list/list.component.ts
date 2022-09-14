@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-list',
@@ -31,6 +32,39 @@ export class ListComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  selProviders = [];
+  unselProviders = [];
+
+  ngOnInit() {
+    console.log('selProviders ===', JSON.parse(localStorage.getItem('selProviders')))
+    this.selProviders = JSON.parse(localStorage.getItem('selProviders')) || this.selectedProviders;
+    this.unselProviders = JSON.parse(localStorage.getItem('unselProviders')) || this.unselectedProviders;
+  }
+
+  async saveProviders() {
+    await localStorage.setItem('selProviders', JSON.stringify(this.selProviders));
+    await localStorage.setItem('unselProviders', JSON.stringify(this.unselProviders));
+  }
+
+  async addItem(item: any) {
+    console.log('add item ===', item)
+    this.selProviders.push(item);
+    // localStorage.setItem('selProviders', JSON.stringify(this.selProviders));
+
+    this.unselProviders = this.unselProviders.filter((obj) => {
+      return obj.id != item.id
+    });
+    // localStorage.setItem('unselProviders', JSON.stringify(this.unselProviders));
+    await this.saveProviders();
+  }
+
+  async removeItem(item: any) {
+    console.log('remove item ===', item);
+    this.unselProviders.push(item);
+    this.selProviders = this.selProviders.filter((obj) => {
+      return obj.id != item.id
+    });
+    await this.saveProviders();
+  }
 
 }
