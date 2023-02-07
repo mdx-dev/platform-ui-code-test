@@ -38,4 +38,17 @@ describe('ListComponent', () => {
       expect(component.selectedProviders.length).toEqual(0);
     });
   });
+
+  describe('provider selection and deselection', () => {
+    it('should select provider', () => {
+      component.select(component.unselectedProviders[0], 0);
+      expect(component.selectedProviders.length).toEqual(1);
+    });
+  
+    it('should deselect provider', () => {
+      component.select(component.unselectedProviders[0], 0);
+      component.deselect(component.selectedProviders[0], 0);
+      expect(component.unselectedProviders.length).toEqual(3);
+    });
+  });
 });

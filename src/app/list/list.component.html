@@ -1,4 +1,40 @@
 <div class="list-container">
   <h2>Providers</h2>
 
+  <div class="data-list-container">
+
+    <div class="data-list">
+      <h3>Provided List</h3>
+      <div class="card-list">
+        <ng-container *ngIf="unselectedProviders?.length; else noUnselectedProviders" >
+          <div *ngFor="let item of unselectedProviders; let i = index;" class="card">
+            {{item.name}}
+            <p>{{item.address}}</p>
+            <button (click)="select(item, i)">select</button>
+          </div>
+        </ng-container>
+        <ng-template #noUnselectedProviders>
+          <div class="card">no record
+          </div>
+        </ng-template>
+      </div>
+    </div>
+
+    <div class="data-list">
+      <h3>Selected Provided List</h3>
+      <div class="card-list">
+        <ng-container *ngIf="selectedProviders?.length; else noSelectedProviders" >
+          <div *ngFor="let item of selectedProviders; let i = index;" class="card">
+            {{item.name}}
+            <p>{{item.address}}</p>
+            <button (click)="deselect(item, i)" class="remove" title="click to remove item">X</button>
+          </div>
+        </ng-container>
+        <ng-template #noSelectedProviders>
+          <div class="card">no record
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
 </div>
