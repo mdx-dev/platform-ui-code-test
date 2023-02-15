@@ -14,9 +14,9 @@ Acceptance Criteria:
 
 # Installation
 
-- `npx npm install`
+- `npx npm ci`
 - `npx ng serve`
-- Load the app at http://localhost:4200 
+- Load the app at http://localhost:4200
 
 # Testing
 
