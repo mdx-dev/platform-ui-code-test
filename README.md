@@ -12,6 +12,10 @@ Acceptance Criteria:
 - The state of both lists should be retained when the app is reloaded.
 - Unit tests should be added to cover new functionality.
 
+# Volta
+
+This project uses a tool called [Volta](https://volta.sh/) to keep versions of global dependencies, like node and npm consistent across developers and automated processes, like CI. Volta does this automatically. So, make sure you have it installed, to get all the benefits of using it. Refer to [the documentation on how to install it on your system](https://docs.volta.sh/guide/getting-started).
+
 # Installation
 
 - `npx npm ci`
