@@ -1,6 +1,10 @@
 {
   "name": "platform-ui-code-test",
   "version": "0.0.0",
+  "volta": {
+    "node": "14.18.1",
+    "npm": "6.14.15"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
