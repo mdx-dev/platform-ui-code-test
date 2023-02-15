@@ -14,15 +14,15 @@ Acceptance Criteria:
 
 # Installation
 
-- `npm install`
-- `ng serve`
+- `npx npm install`
+- `npx ng serve`
 - Load the app at http://localhost:4200 
 
 # Testing
 
 To test your work, run:
 
-- `ng test`
+- `npx ng test`
 
 # Finishing up
 
